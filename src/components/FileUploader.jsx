@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { BASE_URL } from '../config'
 
 function FileUploader() {
   const [file, setFile] = useState(null)
@@ -74,7 +75,7 @@ function FileUploader() {
     formData.append('file', file)
 
     try {
-      const response = await fetch('http://localhost:8000/api/upload', {
+      const response = await fetch(`${BASE_URL}/api/upload`, {
         method: 'POST',
         body: formData,
       })

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BASE_URL } from '../config'
 
 function TextHumanizer() {
   const [text, setText] = useState('')
@@ -18,7 +19,7 @@ function TextHumanizer() {
     setHumanizedText(null)
 
     try {
-      const response = await fetch('http://localhost:8000/api/humanize', {
+      const response = await fetch(`${BASE_URL}/api/humanize`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

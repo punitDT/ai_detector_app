@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BASE_URL } from '../config'
 
 function TextDetector() {
   const [text, setText] = useState('')
@@ -17,7 +18,7 @@ function TextDetector() {
     setResult(null)
 
     try {
-      const response = await fetch('http://localhost:8000/api/detect', {
+      const response = await fetch(`${BASE_URL}/api/detect`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
